@@ -1,0 +1,15 @@
+package midterm;
+
+public class Tester {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println(isOdd(12));
+	}
+	public static boolean isOdd(int x){
+	    while(x != 1 && x != 0){
+	        x = x/2;
+	    }
+	    return x==1;
+	}
+}

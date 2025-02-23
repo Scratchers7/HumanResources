@@ -1,0 +1,5 @@
+package humanResources;
+
+public interface PersonList {
+
+}
