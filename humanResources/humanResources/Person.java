@@ -1,5 +1,6 @@
 package humanResources;
 
+
 public class Person {
 	private String name;
 	private double weight;
@@ -39,7 +40,7 @@ public class Person {
 	
 	public String toString()
 	{
-		return String.format("%8s%32f%f",this.getName(),this.getHeight(),this.getWeight());
+		return String.format("%8s%8.2f%8.2f",this.getName(),this.getHeight(),this.getWeight());
 	}
 	@Override
 	public boolean equals(Object o)
