@@ -39,7 +39,7 @@ public class Person {
 	
 	public String toString()
 	{
-		return this.name+","+this.height+","+this.weight;
+		return String.format("%8s%32f%f",this.getName(),this.getHeight(),this.getWeight());
 	}
 	@Override
 	public boolean equals(Object o)
