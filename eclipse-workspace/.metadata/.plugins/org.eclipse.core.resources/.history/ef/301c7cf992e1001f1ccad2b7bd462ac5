@@ -1,0 +1,41 @@
+package hurricane;
+
+
+//Needed for output to file
+import java.io.FileWriter;
+
+public class HurricaneRowData {
+	private int year;
+	private int ace;
+	private int trop;
+	private int hurr;
+	private int majHurr;
+	
+	public HurricaneRowData()
+	{
+		year = 0;
+		ace =0;
+		trop = 0;
+		hurr = 0;
+		majHurr = 0;
+	}
+	
+	public HurricaneRowData(int year, int ace, int trop, int hurr, int majHurr)
+	{
+		this.year = year;
+		this.ace =ace;
+		this.trop = trop;
+		this.hurr = hurr;
+		this.majHurr = majHurr;
+	}
+	
+	public int getYear()
+	{
+		return year;
+	}
+	
+	public int getAce()
+	{
+		return ace;
+	}
+}

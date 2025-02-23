@@ -1,0 +1,29 @@
+package hurricane;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ArrayList<HurricaneRowData> list = new ArrayList<HurricaneRowData>();
+		try {
+			File f = new File("ace.csv");
+			Scanner input = new Scanner(f);
+			while(input.hasNextLine())
+			{
+				int[] vars = new int[5];
+				for(int i=0; i<5;i++)
+				{
+					vars[i]=(input.nextInt());
+				}
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

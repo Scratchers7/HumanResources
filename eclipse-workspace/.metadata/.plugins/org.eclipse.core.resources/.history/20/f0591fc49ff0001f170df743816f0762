@@ -1,0 +1,21 @@
+package midterm;
+
+public class Tester {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		double[][] array = 
+		    {{2, 9, 6, 2},
+		     {3, 6, 3, 4},
+		     {1, 0, 5, 5},
+		     {9, 7, 5, 5}};
+		
+		int r = array.length/2;
+		for(int i=r; i<array.length; i++){
+		    int c = array[i].length/2;
+		    for(int j=c; j<array[i].length; j++){
+		        System.out.println(array[i][j]);
+		    }
+		}
+	}
+}
