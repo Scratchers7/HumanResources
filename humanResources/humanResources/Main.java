@@ -61,9 +61,10 @@ public class Main
 		double height = fileReader.nextDouble();
 		double weight = fileReader.nextDouble();
 		*/
-		File hr = new File("hr.txt");
+		File hr = new File("D:\\Github\\Eclpise\\humanResources\\humanResources\\hr.txt");//replace with direct reference to file on your computer
 		try {
 			Scanner fileReader = new Scanner(hr);
+			fileReader.nextLine();
 			while(fileReader.hasNext())
 			{
 				String name = fileReader.next();
