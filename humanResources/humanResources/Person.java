@@ -1,7 +1,13 @@
 package humanResources;
-
+/*
+Journey Allison
+2/24/2025
+Sources: 
+https://www.w3schools.com/java/ref_string_format.asp
+*/
 
 public class Person {
+	//describes a person with a name height and weight
 	private String name;
 	private double weight;
 	private double height;
@@ -15,32 +21,32 @@ public class Person {
 	
 	public String getName()
 	{
-		return this.name;
+		return this.name;//returns the name of the person
 	}
 	
 	public double getHeight()
 	{
-		return this.height;
+		return this.height;//returns the height of the person
 	}
 	
 	public double getWeight()
 	{
-		return this.weight;
+		return this.weight;//returns the weight of the person
 	}
 	
 	public void setHeight(double height)
 	{
-		this.height = height;
+		this.height = height;//change height to the inputed value
 	}
 	
 	public void setWeight(double weight)
 	{
-		this.weight = weight;
+		this.weight = weight;//change weight to the inputed value
 	}
 	
 	public String toString()
 	{
-		return String.format("%8s%8.2f%8.2f",this.getName(),this.getHeight(),this.getWeight());
+		return String.format("%8s%8.2f%8.2f",this.getName(),this.getHeight(),this.getWeight());//returns their name, height and weight in a formatted manner
 	}
 	@Override
 	public boolean equals(Object o)

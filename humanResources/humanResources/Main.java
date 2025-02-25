@@ -23,6 +23,12 @@ Composition
 */
 package humanResources;
 
+/*
+Journey Allison
+2/24/2025
+Sources: 
+https://www.w3schools.com/java/ref_string_format.asp
+*/
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -37,19 +43,19 @@ public class Main
 		
 		System.out.println();
 		
-		String[] nameList = {"Mario", "Toad", "Luigi", "Bowser", "Peach"};
-		int[] heightList = {155,41,158,310,183};
-		int[] widthList = {90,7,83,726,60};
-		Person testPerson = new Person("John",200,50);
-		System.out.println(testPerson);
-		PersonSet testSet = new PersonSet();
+		String[] nameList = {"Mario", "Toad", "Luigi", "Bowser", "Peach"}; //list of names for random person generation
+		int[] heightList = {155,41,158,310,183};//list of accompanying height for random person generation
+		int[] widthList = {90,7,83,726,60};//list of accompanying weight for random person generation
+		Person testPerson = new Person("John",200,50);//creates test person
+		System.out.println(testPerson);//tests all of tests persons public methods
+		PersonSet testSet = new PersonSet();//creates test set of people
 		for(int i=0; i<5;i++)
 		{
 			int index = (int)(Math.random()*5);
 			Person added = new Person(nameList[index], heightList[index], widthList[index]);
 			testSet.add(added);
-		}
-		System.out.println(testSet);
+		}//creates some random people to test the PersonSet class
+		System.out.println(testSet);//test toString for set
 		/*
 		// Don't overcomplicate the data
 		// reading. After skipping the
@@ -61,16 +67,30 @@ public class Main
 		double height = fileReader.nextDouble();
 		double weight = fileReader.nextDouble();
 		*/
-		File hr = new File("D:\\Github\\Eclpise\\humanResources\\humanResources\\hr.txt");//replace with direct reference to file on your computer
+		Scanner userInput = new Scanner(System.in);
+		System.out.println("Enter the exact location of hr.txt on your machine");
+		String FileLocation = userInput.nextLine();
+		System.out.println(FileLocation);
+		File hr;
+		if(FileLocation.equals(""))
+		{
+				hr = new File("D:\\Github\\Eclpise\\humanResources\\humanResources\\hr.txt");
+
+		}
+		else
+		{
+				hr = new File(FileLocation);//replace with direct reference to file on your computer
+		}
 		try {
-			Scanner fileReader = new Scanner(hr);
-			fileReader.nextLine();
+			Scanner fileReader = new Scanner(hr);//scanner to read file
+			fileReader.nextLine();//uses first line of non data
 			while(fileReader.hasNext())
 			{
-				String name = fileReader.next();
-				double height = fileReader.nextDouble();
-				double weight = fileReader.nextDouble();
-				System.out.println(new Person(name,height,weight));
+				//while there is more to be read from document read it
+				String name = fileReader.next();//gets the name of the person from the file
+				double height = fileReader.nextDouble();//gets the height of the person from the file
+				double weight = fileReader.nextDouble();//gets the width of the person form the file
+				System.out.println(new Person(name,height,weight));//creates new person and prints it form the data in file
 			}
 			
 		} catch (FileNotFoundException e) {
