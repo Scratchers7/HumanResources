@@ -70,7 +70,7 @@ public class Main
 		Scanner userInput = new Scanner(System.in);
 		System.out.println("Enter the exact location of hr.txt on your machine");
 		String FileLocation = userInput.nextLine();
-		System.out.println(FileLocation);
+		//System.out.println(FileLocation);
 		File hr;
 		if(FileLocation.equals(""))
 		{

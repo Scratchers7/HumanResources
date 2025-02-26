@@ -46,7 +46,7 @@ public class Person {
 	
 	public String toString()
 	{
-		return String.format("%8s%8.2f%8.2f",this.getName(),this.getHeight(),this.getWeight());//returns their name, height and weight in a formatted manner
+		return String.format("%-8s%-16d%-16d",this.getName(),(int)this.getHeight(),(int)this.getWeight());//returns their name, height and weight in a formatted manner
 	}
 	@Override
 	public boolean equals(Object o)
