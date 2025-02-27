@@ -19,6 +19,13 @@ public class Person {
 		this.weight = weight;
 	}
 	
+	public Person(Person p)
+	{
+		this.name = p.getName();
+		this.height = p.getHeight();
+		this.weight = p.getWeight();
+	}
+	
 	public String getName()
 	{
 		return this.name;//returns the name of the person

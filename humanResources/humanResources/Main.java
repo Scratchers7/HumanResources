@@ -28,7 +28,11 @@ Journey Allison
 2/24/2025
 Sources: 
 https://www.w3schools.com/java/ref_string_format.asp
-https://www.w3schools.com/java/ref_string_format.asp
+https://www.w3schools.com/java/ref_string_compareto.asp
+https://www.w3schools.com/java/ref_arraylist_sort.asp
+https://www.w3schools.com/java/java_lambda.asp
+https://www.w3schools.com/java/ref_string_tolowercase.asp
+asked gemini, "what should the lambda expression for sort return java" so I could understand what the sort method wanted from the lambda expression
 */
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -41,7 +45,7 @@ public class Main
 {
 	public static void main(String[] args) 
 	{
-		
+		/*
 		System.out.println();
 		
 		String[] nameList = {"Mario", "Toad", "Luigi", "Bowser", "Peach"}; //list of names for random person generation
@@ -57,7 +61,7 @@ public class Main
 			testSet.add(added);
 		}//creates some random people to test the PersonSet class
 		System.out.println(testSet);//test toString for set
-		/*
+
 		// Don't overcomplicate the data
 		// reading. After skipping the
 		// first row, you can use the 
@@ -68,6 +72,7 @@ public class Main
 		double height = fileReader.nextDouble();
 		double weight = fileReader.nextDouble();
 		*/
+		/*
 		Scanner userInput = new Scanner(System.in);
 		System.out.println("Enter the exact location of hr.txt on your machine");
 		String FileLocation = userInput.nextLine();
@@ -112,5 +117,7 @@ public class Main
 			System.out.println(e);
 			System.exit(1);
 		}*/
+		
+		
 	}
 }
