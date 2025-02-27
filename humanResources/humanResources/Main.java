@@ -152,6 +152,25 @@ public class Main
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		try
+		{	
+			FileWriter fileWriterImperial = new FileWriter("hr_imperial_set_output.txt");
+			FileWriter fileWriterOrdered = new FileWriter("hr_ordered_set_output.txt");
+			fileWriterOrdered.write(orderedSet.toString());
+			fileWriterOrdered.close();
+			fileWriterImperial.write(imperialSet.toString());
+			fileWriterImperial.close();
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+			System.out.println(e);
+			System.exit(1);
+		}
+		
+		System.out.println("Imperial\n"+imperialSet);
+		System.out.println("Ordered\n"+orderedSet);
 		userInput.close();
 	}
 }
