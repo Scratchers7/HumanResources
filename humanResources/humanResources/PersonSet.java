@@ -29,7 +29,7 @@ public class PersonSet implements PersonList{
 	}
 	public String toString()
 	{
-		String returnString = "Name	Height (cm)		Weight (kg)\n";
+		String returnString = "Name	Height (cm)     Weight (kg)\n";
 		for(Person p:people)
 		{
 			returnString+=p.toString()+"\n";//returns out information about everyone in the list by line

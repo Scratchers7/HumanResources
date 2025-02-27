@@ -16,7 +16,7 @@ public class PersonImperialSet extends PersonSet{
 	@Override
 	public String toString()
 	{
-		String returnString = "Name	Height (in)		Weight (lbs)\n";
+		String returnString = "Name	Height (in)     Weight (lbs)\n";
 		for(Person p:people)
 		{
 			returnString+=p.toString()+"\n";//returns out information about everyone in the list by line

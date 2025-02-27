@@ -120,9 +120,10 @@ public class Main
 		
 		PersonImperialSet imperialSet = new PersonImperialSet();
 		PersonOrderedSet orderedSet = new PersonOrderedSet();
-		Scanner userInput = new Scanner(System.in);
-		System.out.println("Enter the exact location of hr.txt on your machine");
-		String FileLocation = userInput.nextLine();
+		//Scanner userInput = new Scanner(System.in);
+		//System.out.println("Enter the exact location of hr.txt on your machine");
+		//String FileLocation = userInput.nextLine();
+		String FileLocation = args[0];
 		//System.out.println(FileLocation);
 		File hr;
 		if(FileLocation.equals(""))
@@ -171,6 +172,5 @@ public class Main
 		
 		System.out.println("Imperial\n"+imperialSet);
 		System.out.println("Ordered\n"+orderedSet);
-		userInput.close();
 	}
 }
