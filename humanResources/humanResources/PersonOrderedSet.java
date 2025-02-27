@@ -12,7 +12,7 @@ public class PersonOrderedSet extends PersonSet{
 		super.add(p);
 		this.sort();
 	}
-	public void sort()
+	private void sort()
 	{
 		super.people.sort((a,b) -> a.getName().toLowerCase().compareTo(b.getName().toLowerCase()));
 	}

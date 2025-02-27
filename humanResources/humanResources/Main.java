@@ -118,6 +118,40 @@ public class Main
 			System.exit(1);
 		}*/
 		
-		
+		PersonImperialSet imperialSet = new PersonImperialSet();
+		PersonOrderedSet orderedSet = new PersonOrderedSet();
+		Scanner userInput = new Scanner(System.in);
+		System.out.println("Enter the exact location of hr.txt on your machine");
+		String FileLocation = userInput.nextLine();
+		//System.out.println(FileLocation);
+		File hr;
+		if(FileLocation.equals(""))
+		{
+				hr = new File("D:\\Github\\Eclpise\\humanResources\\humanResources\\hr.txt");
+
+		}
+		else
+		{
+				hr = new File(FileLocation);
+		}
+		try {
+			Scanner fileReader = new Scanner(hr);//scanner to read file
+			fileReader.nextLine();//uses first line of non data
+			while(fileReader.hasNext())
+			{
+				//while there is more to be read from document read it
+				String name = fileReader.next();//gets the name of the person from the file
+				double height = fileReader.nextDouble();//gets the height of the person from the file
+				double weight = fileReader.nextDouble();//gets the width of the person form the file
+				Person p = new Person(name,height,weight);//creates new person and prints it form the data in file
+				orderedSet.add(p);
+				imperialSet.add(new Person(p));
+			}
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		userInput.close();
 	}
 }
