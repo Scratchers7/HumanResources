@@ -118,17 +118,17 @@ public class Main
 			System.exit(1);
 		}*/
 		
-		PersonImperialSet imperialSet = new PersonImperialSet();
-		PersonOrderedSet orderedSet = new PersonOrderedSet();
+		PersonImperialSet imperialSet = new PersonImperialSet();//instantiates new set with Imperial Measurements
+		PersonOrderedSet orderedSet = new PersonOrderedSet();//instantiates new set which is ordered by name
 		//Scanner userInput = new Scanner(System.in);
 		//System.out.println("Enter the exact location of hr.txt on your machine");
 		//String FileLocation = userInput.nextLine();
-		String FileLocation = args[0];
+		String FileLocation = args[0];//gets file location from user running file in terminal
 		//System.out.println(FileLocation);
 		File hr;
 		if(FileLocation.equals(""))
 		{
-				hr = new File("D:\\Github\\Eclpise\\humanResources\\humanResources\\hr.txt");
+				hr = new File("D:\\Github\\Eclpise\\humanResources\\humanResources\\hr.txt");//this is for my ease when running the code
 
 		}
 		else
@@ -145,8 +145,8 @@ public class Main
 				double height = fileReader.nextDouble();//gets the height of the person from the file
 				double weight = fileReader.nextDouble();//gets the width of the person form the file
 				Person p = new Person(name,height,weight);//creates new person and prints it form the data in file
-				orderedSet.add(p);
-				imperialSet.add(new Person(p));
+				orderedSet.add(p);//adds data to ordered set which will order it
+				imperialSet.add(new Person(p)); //adds person to imperial set which will convert it to imperial measurements
 			}
 			
 		} catch (FileNotFoundException e) {
@@ -156,9 +156,10 @@ public class Main
 		
 		try
 		{	
-			FileWriter fileWriterImperial = new FileWriter("hr_imperial_set_output.txt");
-			FileWriter fileWriterOrdered = new FileWriter("hr_ordered_set_output.txt");
-			fileWriterOrdered.write(orderedSet.toString());
+			//writes out data from HR into 2 files
+			FileWriter fileWriterImperial = new FileWriter("hr_imperial_set_output.txt");//imperial output file
+			FileWriter fileWriterOrdered = new FileWriter("hr_ordered_set_output.txt");//ordered by name output file
+			fileWriterOrdered.write(orderedSet.toString());//uses the toString of the sets to fill the files
 			fileWriterOrdered.close();
 			fileWriterImperial.write(imperialSet.toString());
 			fileWriterImperial.close();
@@ -170,7 +171,7 @@ public class Main
 			System.exit(1);
 		}
 		
-		System.out.println("Imperial\n"+imperialSet);
+		System.out.println("Imperial\n"+imperialSet);//prints out toString of both sets
 		System.out.println("Ordered\n"+orderedSet);
 	}
 }
