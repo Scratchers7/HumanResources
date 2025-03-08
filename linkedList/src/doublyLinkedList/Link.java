@@ -1,6 +1,6 @@
 package doublyLinkedList;
 //Journey Allison
-public class Link {
+public class Link implements DoublyLinkedSortedListInterface{
 	private Object data;
 	private Link prev;
 	private Link next;
@@ -48,8 +48,16 @@ public class Link {
 	{
 		return next;
 	}
+	public boolean hasNext()
+	{
+		return this.next !=null;
+	}
 	
-	public Link getPrev()
+	public boolean hasPrevious()
+	{
+		return this.prev !=null;
+	}
+	public Link getPrevious()
 	{
 		return prev;
 	}
@@ -66,10 +74,49 @@ public class Link {
 		}
 	}
 	
-	public Link remove()
+	public Link removeThis()
 	{
 		prev.setNext(next);
 		return this;
+	}
+	
+	public void insert(Object newValue)
+	{
+		getFirst().insertLoop(newValue);
+	}
+	
+	protected void insertLoop(Object newValue)
+	{
+		HurricaneRowData newVal = (HurricaneRowData) newValue;
+		if(newVal.compareTo((HurricaneRowData)this.getValue()) == 1)
+		{
+			next.insert(newValue);
+		}
+		else if(newVal.compareTo((HurricaneRowData)this.getValue()) == -1)
+		{
+			this.setPrevious(new Link(newVal));
+		}
+		else
+		{
+			this.setPrevious(new Link(newVal));
+		}
+	}
+	
+	public Link remove(Object toRemove)
+	{
+		return getFirst().removeLoop(toRemove);
+	}
+	
+	protected Link removeLoop(Object toRemove)
+	{
+		if(this.getValue().equals(toRemove))
+		{
+			return this.removeThis();
+		}
+		else
+		{
+			return next.remove(toRemove);
+		}
 	}
 	
 	public Link getLast()
