@@ -68,4 +68,9 @@ public class HurricaneRowData implements Comparable<HurricaneRowData> {
 		//returns ace instance variable
 		return ace;
 	}
+	
+	public String toString()
+	{
+		return this.year+","+this.ace+","+this.trop+","+this.hurr+","+this.majHurr;
+	}
 }
