@@ -6,7 +6,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/*
+Journey Allison
+3/9/2025
+Sources:
+https://www.w3schools.com/java/java_files_create.asp
+https://www.w3schools.com/java/ref_string_split.asp
+https://www.geeksforgeeks.org/comparable-interface-in-java-with-examples/
+asked Googles Gemini, "regex find and replace \ with \\ java"
+*/
 public class Main {
 	public static void main(String[] args)
 	{

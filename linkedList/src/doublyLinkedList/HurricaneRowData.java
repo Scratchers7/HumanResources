@@ -1,10 +1,11 @@
 package doublyLinkedList;
 /*
 Journey Allison
-2/2/2025
+3/9/2025
 Sources:
 https://www.w3schools.com/java/java_files_create.asp
 https://www.w3schools.com/java/ref_string_split.asp
+https://www.geeksforgeeks.org/comparable-interface-in-java-with-examples/
 asked Googles Gemini, "regex find and replace \ with \\ java"
 */
 public class HurricaneRowData implements Comparable<HurricaneRowData> {
@@ -52,15 +53,16 @@ public class HurricaneRowData implements Comparable<HurricaneRowData> {
 	
 	public int compareTo(HurricaneRowData other)
 	{
+		//compareTo method for sorting the HurricaneRowData in a list
 		if(other.getAce()>this.getAce())
 		{
-			return 1;
+			return 1;//if the other ace is larger then say it should go first
 		}
 		if(this.getAce()>other.getAce())
 		{
-			return -1;
+			return -1;//if this ones ace is larger then say this one should go first
 		}
-		return 0;
+		return 0;//if they have the same ace they return 0
 	}
 	
 	public int getAce()
@@ -71,6 +73,6 @@ public class HurricaneRowData implements Comparable<HurricaneRowData> {
 	
 	public String toString()
 	{
-		return this.year+","+this.ace+","+this.trop+","+this.hurr+","+this.majHurr;
+		return this.year+","+this.ace+","+this.trop+","+this.hurr+","+this.majHurr;//returns all instance variable data
 	}
 }
