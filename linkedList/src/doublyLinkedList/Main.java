@@ -18,7 +18,7 @@ asked Googles Gemini, "regex find and replace \ with \\ java"
 public class Main {
 	public static void main(String[] args)
 	{
-		Link list = new Link();//list to contain all rows of the file as HurricaneRowData instances
+		DoublyLinkedSortedList list = new DoublyLinkedSortedList();//list to contain all rows of the file as HurricaneRowData instances
 		int maxYear=0;
 		int maxAce=0;
 		try {
@@ -48,7 +48,7 @@ public class Main {
 				}
 				list.insert(new HurricaneRowData(vars));//adds a new HurricaneRowData instance to ArrayList
 			}
-			Link link = list.getFirst();
+			DoublyLinkedSortedList link = list.getFirst();
 			HurricaneRowData dat = (HurricaneRowData)link.getValue();
 			int max_year = dat.getYear();
 			int max_ace = dat.getAce();

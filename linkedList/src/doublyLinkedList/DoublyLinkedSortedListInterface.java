@@ -18,28 +18,28 @@ public interface DoublyLinkedSortedListInterface
 	public boolean hasNext();
 	
 	//Set next to be the given DoublyLinkedSortedList
-	public void setNext(Link next);
+	public void setNext(DoublyLinkedSortedList next);
 	
 	//Return a reference to the next DoublyLinkedSortedList
-	public Link getNext();
+	public DoublyLinkedSortedList getNext();
 	
 	//Return true if previous is not null
 	public boolean hasPrevious();
 	
 	//Set previous to be the given DoublyLinkedSortedList
-	public void setPrevious(Link previous);
+	public void setPrevious(DoublyLinkedSortedList previous);
 	
 	//Return a reference to the previous DoublyLinkedSortedList
-	public Link getPrevious();
+	public DoublyLinkedSortedList getPrevious();
 	
 	//Return a reference to the first DoublyLinkedSortedList element in the list
-	public Link getFirst();
+	public DoublyLinkedSortedList getFirst();
 	
 	//Return a reference to the last DoublyLinkedSortedList element in the list
-	public Link getLast();
+	public DoublyLinkedSortedList getLast();
 	
 	//Remove the DoublyLinkedSortedList element that has toRemove as its value
-	public Link remove(Object toRemove);
+	public DoublyLinkedSortedList remove(Object toRemove);
 	
 	//Insert a new DoublyLinkedSortedList element that has the given newValue in order in the list.
 	public void insert(Object newValue);
