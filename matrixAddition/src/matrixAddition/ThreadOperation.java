@@ -1,5 +1,10 @@
 package matrixAddition;
-
+/*
+Journey Allison
+3/23/2025
+Sources: 
+https://www.geeksforgeeks.org/joining-threads-in-java/ to remember what join did
+*/
 public class ThreadOperation extends Thread{
 	private int[][] matrix1;//holds first matrix to add
 	private int[][] matrix2;//holds second matrix to add

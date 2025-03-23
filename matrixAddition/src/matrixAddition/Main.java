@@ -1,5 +1,10 @@
 package matrixAddition;
-
+/*
+Journey Allison
+3/23/2025
+Sources: 
+https://www.geeksforgeeks.org/joining-threads-in-java/ to remember what join did
+*/
 /*
 This code is provided to give you a
 starting place. It should be modified.
@@ -18,6 +23,14 @@ threads compared to processes, etcetera,
 and connect these issues to 
 multi-threading.
 
+Instead of wasting all allocated memory and processor cycles on waiting for the user to perform IO, 
+other processes that do not need the IO will continue to run while waiting for the user. 
+Multi-threading also allows the processor to more efficiently use multicore machines by running
+threads concurrently on different cores allowing for the processes to be run at the same time
+reducing time per core and thus overall time on the code. Additionally multi-threading can also 
+reduce IO times that don't involve humans because if a program is waiting for data from a file to 
+flow in it can perform other tasks, reducing resource usage by using the allocated resources during a
+time when they would not otherwise be used.
 */
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -27,19 +40,37 @@ public class Main
 {
 	public static void main(String[] args) 
 	{
-		int[][] testArray = new int[3][4];
-		testArray = fillArray(testArray);
-		print2DArray(testArray);
+		int[][] testArray = new int[3][4];//array to test print2DArray
+		testArray = fillArray(testArray);//fills array with a list of numbers to ensure the print method works
+		print2DArray(testArray);//tests print method
 		System.out.println();
-		String fileLocation = args[0];
+		String fileLocation = args[0];//gets file location of matrixes 
 		File matrixFile = new File(fileLocation);
 		try {
-			Scanner fileInput = new Scanner(matrixFile);
-			int rows = fileInput.nextInt();
-			int columns = fileInput.nextInt();
-			int[][] matrix1 = matrixFromFile(rows,columns,fileInput);
-			int[][] matrix2 = matrixFromFile(rows,columns,fileInput);
-			print2DArray(matrix1);
+			Scanner fileInput = new Scanner(matrixFile);//to read the matrixes from the file
+			int rows = fileInput.nextInt();//gets the number of rows in each of the matrixes
+			int columns = fileInput.nextInt();//gets the number of columns in each of the matrixes
+			int[][] matrix1 = matrixFromFile(rows,columns,fileInput);//gets the first matrix using the MatrixFromFile method
+			int[][] matrix2 = matrixFromFile(rows,columns,fileInput);//gets the second matrix using the MatrixFromFile method
+			
+			ThreadOperation thread1 = new ThreadOperation(matrix1,matrix2,1);//tests threadOperation
+			ThreadOperation thread2 = new ThreadOperation(matrix1,matrix2,2);
+			ThreadOperation thread3 = new ThreadOperation(matrix1,matrix2,3);
+			ThreadOperation thread4 = new ThreadOperation(matrix1,matrix2,4);
+			thread1.start();//starts threads
+			thread2.start();
+			thread3.start();
+			thread4.start();
+			try {
+				thread1.join();//makes main method wait until run method is complete for all threads to finish
+				thread2.join();
+				thread3.join();
+				thread4.join();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			print2DArray(matrix1);//prints the 2 matrixes from file
 			System.out.println();
 			print2DArray(matrix2);
 		} catch (FileNotFoundException e) {
@@ -54,19 +85,19 @@ public class Main
 		{
 			for(int j = 0; j<array[0].length;j++)
 			{
-				System.out.printf("%-3d",array[i][j]);
+				System.out.printf("%-3d",array[i][j]);//prints each index in the 2dArray making it take up 3 spaces
 			}
-			System.out.println();
+			System.out.println();//next line of 2dArray
 		}
 	}
 	public static int[][] fillArray(int[][] array)
 	{
-		int[][] newArray = new int[array.length][array[0].length];
+		int[][] newArray = new int[array.length][array[0].length];//array to return
 		for(int i =0; i<array.length;i++)
 		{
 			for(int j= 0;j<array[0].length; j++)
 			{
-				newArray[i][j] = (i)*(array.length+1) +j;
+				newArray[i][j] = (i)*(array.length+1) +j;//fills each index in the array with an increasing number, starting at zero
 			}
 		}
 		return newArray;
@@ -74,14 +105,14 @@ public class Main
 	
 	public static int[][] matrixFromFile(int rows,int columns,Scanner file_reader)
 	{
-		int[][] returnArray = new int[rows][columns];
+		int[][] returnArray = new int[rows][columns];//array to return
 		for(int i =0;i<rows;i++)
 		{
 			for(int j = 0; j<columns;j++)
 			{
 				try
 				{
-					returnArray[i][j] = file_reader.nextInt();
+					returnArray[i][j] = file_reader.nextInt();//fills the array with the data from file
 				}
 				catch(Exception e)
 				{
