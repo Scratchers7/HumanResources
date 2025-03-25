@@ -40,7 +40,7 @@ public class Main
 {
 	public static void main(String[] args) 
 	{
-		long startTime = System.nanoTime();
+		
 		//int[][] testArray = new int[3][4];//array to test print2DArray
 		///testArray = fillArray(testArray);//fills array with a list of numbers to ensure the print method works
 		//print2DArray(testArray);//tests print method
@@ -53,9 +53,9 @@ public class Main
 			int columns = fileInput.nextInt();//gets the number of columns in each of the matrixes
 			int[][] matrix1 = matrixFromFile(rows,columns,fileInput);//gets the first matrix using the MatrixFromFile method
 			int[][] matrix2 = matrixFromFile(rows,columns,fileInput);//gets the second matrix using the MatrixFromFile method
-			int[][] matrix3 = new int[rows][columns];
-			
-			ThreadOperation thread1 = new ThreadOperation(matrix1,matrix2,matrix3,1);//tests threadOperation
+			int[][] matrix3 = new int[rows][columns];//result matrix for matrix addition
+			long startTimeThreads = System.nanoTime();//Starting system time for the threaded matrix addition
+			ThreadOperation thread1 = new ThreadOperation(matrix1,matrix2,matrix3,1);//threads to split up the work of adding the matrix
 			ThreadOperation thread2 = new ThreadOperation(matrix1,matrix2,matrix3,2);
 			ThreadOperation thread3 = new ThreadOperation(matrix1,matrix2,matrix3,3);
 			ThreadOperation thread4 = new ThreadOperation(matrix1,matrix2,matrix3,4);
@@ -72,9 +72,9 @@ public class Main
 				e.printStackTrace();
 			}
 			
+			long endTimeThreads = System.nanoTime();//ending time for the threads adding the matrixes
+			System.out.println("Time to Finish "+((endTimeThreads - startTimeThreads)/1_000_000_000.0));
 			print2DArray(matrix3);
-			long endTime = System.nanoTime();
-			System.out.println("Time to Finish "+((endTime - startTime)/1_000_000_000.0));
 			//print2DArray(matrix1);//prints the 2 matrixes from file
 			//System.out.println();
 			//print2DArray(matrix2);
