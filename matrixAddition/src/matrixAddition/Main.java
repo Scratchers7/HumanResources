@@ -40,10 +40,11 @@ public class Main
 {
 	public static void main(String[] args) 
 	{
-		int[][] testArray = new int[3][4];//array to test print2DArray
-		testArray = fillArray(testArray);//fills array with a list of numbers to ensure the print method works
-		print2DArray(testArray);//tests print method
-		System.out.println();
+		long startTime = System.nanoTime();
+		//int[][] testArray = new int[3][4];//array to test print2DArray
+		///testArray = fillArray(testArray);//fills array with a list of numbers to ensure the print method works
+		//print2DArray(testArray);//tests print method
+		//System.out.println();
 		String fileLocation = args[0];//gets file location of matrixes 
 		File matrixFile = new File(fileLocation);
 		try {
@@ -52,11 +53,12 @@ public class Main
 			int columns = fileInput.nextInt();//gets the number of columns in each of the matrixes
 			int[][] matrix1 = matrixFromFile(rows,columns,fileInput);//gets the first matrix using the MatrixFromFile method
 			int[][] matrix2 = matrixFromFile(rows,columns,fileInput);//gets the second matrix using the MatrixFromFile method
+			int[][] matrix3 = new int[rows][columns];
 			
-			ThreadOperation thread1 = new ThreadOperation(matrix1,matrix2,1);//tests threadOperation
-			ThreadOperation thread2 = new ThreadOperation(matrix1,matrix2,2);
-			ThreadOperation thread3 = new ThreadOperation(matrix1,matrix2,3);
-			ThreadOperation thread4 = new ThreadOperation(matrix1,matrix2,4);
+			ThreadOperation thread1 = new ThreadOperation(matrix1,matrix2,matrix3,1);//tests threadOperation
+			ThreadOperation thread2 = new ThreadOperation(matrix1,matrix2,matrix3,2);
+			ThreadOperation thread3 = new ThreadOperation(matrix1,matrix2,matrix3,3);
+			ThreadOperation thread4 = new ThreadOperation(matrix1,matrix2,matrix3,4);
 			thread1.start();//starts threads
 			thread2.start();
 			thread3.start();
@@ -70,9 +72,12 @@ public class Main
 				e.printStackTrace();
 			}
 			
-			print2DArray(matrix1);//prints the 2 matrixes from file
-			System.out.println();
-			print2DArray(matrix2);
+			print2DArray(matrix3);
+			long endTime = System.nanoTime();
+			System.out.println("Time to Finish "+((endTime - startTime)/1_000_000_000.0));
+			//print2DArray(matrix1);//prints the 2 matrixes from file
+			//System.out.println();
+			//print2DArray(matrix2);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
