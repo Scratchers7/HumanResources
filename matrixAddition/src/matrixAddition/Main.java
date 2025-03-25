@@ -54,6 +54,7 @@ public class Main
 			int[][] matrix1 = matrixFromFile(rows,columns,fileInput);//gets the first matrix using the MatrixFromFile method
 			int[][] matrix2 = matrixFromFile(rows,columns,fileInput);//gets the second matrix using the MatrixFromFile method
 			int[][] matrix3 = new int[rows][columns];//result matrix for matrix addition
+			int[][] matrix4 = new int[rows][columns];
 			long startTimeThreads = System.nanoTime();//Starting system time for the threaded matrix addition
 			ThreadOperation thread1 = new ThreadOperation(matrix1,matrix2,matrix3,1);//threads to split up the work of adding the matrix
 			ThreadOperation thread2 = new ThreadOperation(matrix1,matrix2,matrix3,2);
@@ -73,7 +74,18 @@ public class Main
 			}
 			
 			long endTimeThreads = System.nanoTime();//ending time for the threads adding the matrixes
-			System.out.println("Time to Finish "+((endTimeThreads - startTimeThreads)/1_000_000_000.0));
+			System.out.println("Time to Finish Multi-Threaded "+((endTimeThreads - startTimeThreads)/1_000_000_000.0));
+			
+			long startTimeSingle = System.nanoTime();
+			for(int i = 0;i<rows;i++)
+			{
+				for(int j = 0;j<columns;j++)
+				{
+					matrix4[i][j] = matrix1[i][j] +matrix2[i][j];//adds each if the indices of the matrices and sets the result matrices corresponding index to to result
+				}
+			}
+			long endTimeSingle = System.nanoTime();
+			System.out.println("Time to Finish Single Threaded "+((endTimeSingle - startTimeSingle)/1_000_000_000.0));
 			print2DArray(matrix3);
 			//print2DArray(matrix1);//prints the 2 matrixes from file
 			//System.out.println();
